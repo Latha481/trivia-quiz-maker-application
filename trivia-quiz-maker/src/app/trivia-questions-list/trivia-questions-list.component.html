@@ -1,0 +1,21 @@
+<div *ngIf="showQuestionsList">
+<ul>
+    <mat-card class="example-card">
+      <li *ngFor="let questionEntry of questions">
+      <mat-card-content [innerHTML]="questionEntry.question">
+      </mat-card-content>
+      <mat-card-actions>
+          <div id="answerList" *ngFor="let choice of questionEntry.all_answers">
+             <button mat-stroked-button color="choices" [innerHTML]="choice"
+                     (click)="setSelectedAnswer(questionEntry,choice)"
+                     [class.change-color]="(choice == questionEntry.selected_answer)"></button>
+            <span>&nbsp;</span>
+          </div>
+      </mat-card-actions>
+      </li>
+    </mat-card>
+</ul>
+  <div class="align-center">
+    <button mat-stroked-button class="submit" *ngIf="isAllQuestionsAnswered" (click) ="navigateToResults()">SUBMIT</button>
+  </div>
+</div>

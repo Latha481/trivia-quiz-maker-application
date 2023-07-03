@@ -1,0 +1,24 @@
+<h3 class="text-align">{{AppConstants.RESULTS_TITLE}}</h3>
+  <div><ul>
+      <mat-card class="example-card">
+        <li *ngFor="let questionEntry of answeredQuestions">
+        <mat-card-content [innerHTML]="questionEntry.question">
+        </mat-card-content>
+        <mat-card-actions>
+            <div id="answerList" *ngFor="let choice of questionEntry.all_answers">
+              <button mat-stroked-button disabled color="results" [innerHTML]="choice"
+              [ngClass]="setColorCoding(questionEntry,choice)">
+              </button>
+              <span>&nbsp;</span>
+            </div>
+        </mat-card-actions>
+        </li>
+        <div [ngStyle]="{'background-color' : score<=1 ? 'red' : ((score<=3)? 'yellow' :'green')}">
+          <p class="text-align">You scored &nbsp;{{score}}&nbsp;out of 5</p>
+        </div>
+      </mat-card>
+  </ul>
+  </div>
+  <div class="align-center">
+    <button mat-stroked-button class="submit" (click) ="navigateToSelection()">{{AppConstants.NEW_QUIZ}}</button>
+  </div>
