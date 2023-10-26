@@ -21,3 +21,11 @@
 <!--parent-child implementation-->
 <app-trivia-questions-list *ngIf="generateQuestions" [category]="selectedCategory"
                            [difficulty]="selectedDifficulty"></app-trivia-questions-list>
+<div>
+  <table>
+  <div *ngFor="let userId of userIds">
+    <td>{{userId.title}}</td>
+    <td>{{userId.id}}</td>
+    </div>
+    </table>
+</div>
