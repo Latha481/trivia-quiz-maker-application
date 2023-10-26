@@ -18,6 +18,7 @@ export class TriviaSelectionComponent {
   selectedCategory: string;
   selectedDifficulty: string;
   generateQuestions : boolean;
+  userIds : any;
   constructor(private dataService : TriviaDataService) {
   }
   ngOnInit(): void {
@@ -30,6 +31,12 @@ export class TriviaSelectionComponent {
           this.dataService.setCategories(this.categories);
         }
       );
+this.dataService.getUserIds().subscribe(
+  (data:any) => {
+    this.userIds = data;
+  }
+);
+      
     }
   }
 }
