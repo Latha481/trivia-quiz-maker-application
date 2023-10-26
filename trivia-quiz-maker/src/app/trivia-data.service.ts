@@ -33,4 +33,7 @@ export class TriviaDataService {
   getAllCategories(){
     return this.allCategories;
   }
+   getUserIds() :Observable<>{
+    return this.http.get("https://jsonplaceholder.typicode.com/todos");
+}
 }
